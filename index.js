@@ -5,7 +5,7 @@ const http = require('http');
 http.createServer((req, res) => { res.write("ShowMC | Sistema Online"); res.end(); }).listen(8080);
 
 // --- CONFIGURACIÓN ACTUALIZADA ---
-const TOKEN = 'MTQ2MTU2MTQ3OTA0NzQxMzg1Mg.GokqWM.BcDWuZOg3rGGG3P1zCwkUSMUxc7Kx5ykATwuIA'; 
+const TOKEN = 'MTQ2MTU2MTQ3OTA0NzQxMzg1Mg.Gp8Neh.ftOim-vAMykKnRiY8J8uZt0FwVCskPBfMyd81w'; 
 const CLIENT_ID = '1461561479047413852';
 const MI_ID = '1458973988234727495'; 
 
