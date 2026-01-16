@@ -5,11 +5,11 @@ const http = require('http');
 http.createServer((req, res) => { res.write("ShowMC | Sistema Online"); res.end(); }).listen(8080);
 
 // --- CONFIGURACIÓN ACTUALIZADA ---
-const TOKEN = 'MTQ2MTU2MTQ3OTA0NzQxMzg1Mg.GokqWM.BcDWuZOg3rGGG3P1zCwkUSMUxc7Kx5ykATwuIA'; // <--- CAMBIA ESTO POR EL TOKEN NUEVO
+const TOKEN = 'MTQ2MTU2MTQ3OTA0NzQxMzg1Mg.GokqWM.BcDWuZOg3rGGG3P1zCwkUSMUxc7Kx5ykATwuIA'; 
 const CLIENT_ID = '1461561479047413852';
 const MI_ID = '1458973988234727495'; 
 
-// IDs Solicitados
+// IDs Solicitados por el usuario
 const ROL_PERMITIDO_1 = '1460923684347707542'; 
 const ROL_PERMITIDO_2 = '1460923685727633454'; 
 const CAT_TICKETS = '1461555248261894165'; 
@@ -52,7 +52,7 @@ client.on('interactionCreate', async interaction => {
                 .setTitle('📩 SISTEMA DE SOPORTE INTEGRAL')
                 .setDescription('Bienvenido al soporte oficial. Selecciona la categoría adecuada.\n\n**Categorías:**\n❓ **Dudas:** Consultas generales.\n🛒 **Compras:** Problemas con la tienda.\n🚫 **Reportes:** Errores o jugadores.\n🤝 **Postulaciones:** Formar parte del equipo.\n🎥 **Media Team:** Rango Media.')
                 .setColor(0x2b2d31)
-                .setImage(IMAGEN_EMBED) // Foto solicitada
+                .setImage(IMAGEN_EMBED) 
                 .setFooter({ text: 'ShowMC • Responderemos lo antes posible', iconURL: interaction.guild.iconURL() })
                 .setTimestamp();
 
@@ -93,7 +93,7 @@ client.on('interactionCreate', async interaction => {
         const canal = await interaction.guild.channels.create({
             name: `${tipo}-${interaction.user.username}`,
             type: ChannelType.GuildText,
-            parent: CAT_TICKETS, // Creado en la categoría solicitada
+            parent: CAT_TICKETS, 
             permissionOverwrites: [
                 { id: interaction.guild.id, deny: [PermissionFlagsBits.ViewChannel] },
                 { id: interaction.user.id, allow: [PermissionFlagsBits.ViewChannel, PermissionFlagsBits.SendMessages, PermissionFlagsBits.AttachFiles] },
@@ -137,7 +137,7 @@ client.on('interactionCreate', async interaction => {
         });
 
         const attachment = new AttachmentBuilder(Buffer.from(log, 'utf-8'), { name: `log-${interaction.channel.name}.txt` });
-        const logChannel = client.channels.cache.get(CANAL_LOGS); // Canal de logs solicitado
+        const logChannel = client.channels.cache.get(CANAL_LOGS); 
         
         if (logChannel) {
             await logChannel.send({ 
